@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-qr-with-image": [
+        "dist/ngx-qr-with-image"
+      ],
+      "ngx-qr-with-image/*": [
+        "dist/ngx-qr-with-image/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

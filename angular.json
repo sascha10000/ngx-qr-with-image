@@ -120,6 +120,41 @@
           }
         }
       }
+    },
+    "ngx-qr-with-image": {
+      "projectType": "library",
+      "root": "projects/ngx-qr-with-image",
+      "sourceRoot": "projects/ngx-qr-with-image/src",
+      "prefix": "ngx-qr-lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-qr-with-image/tsconfig.lib.json",
+            "project": "projects/ngx-qr-with-image/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-qr-with-image/src/test.ts",
+            "tsConfig": "projects/ngx-qr-with-image/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-qr-with-image/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-qr-with-image/tsconfig.lib.json",
+              "projects/ngx-qr-with-image/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "ngx-qr-with-image-library"
 }
