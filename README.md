@@ -3,7 +3,7 @@
 Install the package with the following commands.
 
 ```bash
-npm install ngx-qr-with-image file-saver angular2-qrcode
+npm install ngx-qr-with-image angular2-qrcode
 ```
 
 Include in Module:
