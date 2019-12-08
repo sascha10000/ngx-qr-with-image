@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, AfterViewInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
 import { saveAs } from 'file-saver';
 
 @Component({
@@ -6,8 +6,8 @@ import { saveAs } from 'file-saver';
   templateUrl: 'ngx-qr-with-image.component.html',
   styles: []
 })
-export class NgxQrWithImageComponent implements OnInit {
-  ngOnInit(): void {
+export class NgxQrWithImageComponent implements AfterViewInit {
+  ngAfterViewInit(): void {
     if(this._imgSrc != undefined){
       this.addImage(this._imgSrc);
     }
