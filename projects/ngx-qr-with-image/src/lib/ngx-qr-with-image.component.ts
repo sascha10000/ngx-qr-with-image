@@ -1,5 +1,4 @@
 import { Component, AfterViewInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
-import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'qr-img',
@@ -44,31 +43,28 @@ export class NgxQrWithImageComponent implements AfterViewInit {
     return this._content;
   }
 
-  saveQRImage(){
-    let elem =  this.qrCode.elementRef.nativeElement.children[0];
-    saveAs(this.canvasToBlob(elem), "file.png");
-  }
-
   addImage(url:string){
-    // get canvas dom element
-    let elem =  this.qrCode.elementRef.nativeElement.children[0];
-    // convert to canvas type
-    let context = elem.getContext("2d");
+    if(this.qrCode !== undefined){
+      // get canvas dom element
+      let elem =  this.qrCode.elementRef.nativeElement.children[0];
+      // convert to canvas type
+      let context = elem.getContext("2d");
 
-    // create image
-    let img = new Image();
+      // create image
+      let img = new Image();
 
-    // fixed sizes
-    let iWidth = this.imgWidth;
-    let iHeight = this.imgWidth;
+      // fixed sizes
+      let iWidth = this.imgWidth;
+      let iHeight = this.imgWidth;
 
-    let _that = this; 
-    img.onload = () => {
-      context.drawImage(img, (elem.width/2) - (iWidth/2),(elem.height/2) - (iHeight/2), iWidth, iHeight);
-      this.qrCodeEmitter.emit(this.canvasToBlob(this.qrCode.elementRef.nativeElement.children[0]));
+      let _that = this; 
+      img.onload = () => {
+        context.drawImage(img, (elem.width/2) - (iWidth/2),(elem.height/2) - (iHeight/2), iWidth, iHeight);
+        this.qrCodeEmitter.emit(this.canvasToBlob(this.qrCode.elementRef.nativeElement.children[0]));
+      }
+
+      img.src = url;
     }
-
-    img.src = url;
   }
 
   // adapted from: https://medium.com/better-programming/convert-a-base64-url-to-image-file-in-angular-4-5796a19fdc21

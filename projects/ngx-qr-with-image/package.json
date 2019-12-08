@@ -1,6 +1,6 @@
 {
   "name": "ngx-qr-with-image",
-  "version": "1.0.5",
+  "version": "1.0.9",
   "description": "Shows an QR Code including an image. Includes an event to receive a blob for downloading as image.",
   "author": "sascha10k",
   "repository": {
@@ -18,7 +18,6 @@
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14",
-    "angular2-qrcode": "^2.0.3",
-    "file-saver": "^2.0.2"
+    "angular2-qrcode": "^2.0.3"
   }
 }
