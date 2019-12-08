@@ -1,24 +1,38 @@
 # NgxQrWithImage
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
+Install the package with the following commands.
 
-## Code scaffolding
+```bash
+npm install ngx-qr-with-image
+npm install file-saver
+npm install angular2-qrcode
+```
 
-Run `ng generate component component-name --project ngx-qr-with-image` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-qr-with-image`.
-> Note: Don't forget to add `--project ngx-qr-with-image` or else it will be added to the default project in your `angular.json` file. 
+Include in Module:
 
-## Build
+```typescript
+import { NgxQrWithImageModule } from 'ngx-qr-with-image';
+...
+  imports: [
+    ...
+    NgxQrWithImageModule
+  ]
+...
+```
 
-Run `ng build ngx-qr-with-image` to build the project. The build artifacts will be stored in the `dist/` directory.
+Usage:
 
-## Publishing
+```html
+<qr-img img="yourImage.png" content="content_shown_by_qr_code" 
+        size="200"
+        img-width="30"
+        img-height="30"
+        (change)="someFunction($event)
+>
+</qr-img>
+```
 
-After building your library with `ng build ngx-qr-with-image`, go to the dist folder `cd dist/ngx-qr-with-image` and run `npm publish`.
+size, img-width, img-height are not mandatory
 
-## Running unit tests
+Example for "someFunction":
 
-Run `ng test ngx-qr-with-image` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
