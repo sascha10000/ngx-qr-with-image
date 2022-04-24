@@ -16,14 +16,14 @@ export class NgxQrWithImageComponent implements AfterViewInit {
   private _content:string;
 
   title = 'qr-code-test';
-  @Input("img-height") imgHeihgt:number = 100;
+  @Input("img-height") imgHeight:number = 100;
   @Input("img-width") imgWidth:number = 100;
   @Input("show") show:boolean = true;
   @Input("size") qrCodeSize:number = 500;
   @Output("change") qrCodeEmitter: EventEmitter<Blob> = new EventEmitter();
   @ViewChild('qrElem', {static : false}) qrCode:any;
 
-  @Input("img") 
+  @Input("img")
   set imgSrc(val:string){
     this._imgSrc = val;
     this.addImage(this._imgSrc);
@@ -32,10 +32,10 @@ export class NgxQrWithImageComponent implements AfterViewInit {
     return this._imgSrc;
   }
 
-  @Input("content") 
+  @Input("content")
   set content(val:string){
     this._content = val;
-    setTimeout(() => { 
+    setTimeout(() => {
       this.addImage(this._imgSrc);
      }, 500);
   }
@@ -55,9 +55,9 @@ export class NgxQrWithImageComponent implements AfterViewInit {
 
       // fixed sizes
       let iWidth = this.imgWidth;
-      let iHeight = this.imgWidth;
+      let iHeight = this.imgHeight;
 
-      let _that = this; 
+      let _that = this;
       img.onload = () => {
         context.drawImage(img, (elem.width/2) - (iWidth/2),(elem.height/2) - (iHeight/2), iWidth, iHeight);
         this.qrCodeEmitter.emit(this.canvasToBlob(this.qrCode.elementRef.nativeElement.children[0]));
