@@ -34,3 +34,11 @@ size, img-width, img-height are not mandatory
 
 Example for "someFunction":
 
+```typescript
+someFunction(event){
+    console.log(event);
+    // maybe use file-save 
+    // saveAs(event, "someFile.png")
+  }
+  ```
+

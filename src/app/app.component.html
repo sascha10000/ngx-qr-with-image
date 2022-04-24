@@ -1,6 +1,9 @@
 <div class="content">
   <input type="text" [(ngModel)]="imgURL" placeholder="URL to some Image"/><br/>
   <input type="text" [(ngModel)]="textValue" placeholder="Data for QR-Code" /><br/>
-  <qr-img [content]="textValue" [img]="imgURL" (change)="receiveBlob($event)"></qr-img>
+  <input type="text" [(ngModel)]="imgHeight" placeholder="Image height" /><br/>
+  <input type="text" [(ngModel)]="imgWidth" placeholder="Image width" /><br/>
+  <input type="text" [(ngModel)]="qrSize" placeholder="QR size" /><br/>
+  <qr-img [content]="textValue" [img]="imgURL" (change)="receiveBlob($event)" [img-height]="imgHeight" [img-width]="imgWidth" [size]="qrSize"></qr-img>
   <button (click)="save()" [disabled]="imgURL == '' || textValue == ''">Download</button>
 </div>
